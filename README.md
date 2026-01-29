@@ -46,7 +46,7 @@
 
 1.  **Установка зависимостей** (если требуются):
     ```bash
-    pip install mkdocs-material
+    pip install mkdocs-material mkdocs-glightbox
     ```
 
 2.  **Запуск локального сервера**:

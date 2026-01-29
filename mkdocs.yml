@@ -27,6 +27,7 @@ extra_assets:
 use_directory_urls: false
 plugins:
   - search
+  - glightbox
 
 markdown_extensions:
   - attr_list
