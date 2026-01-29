@@ -21,16 +21,12 @@
 2. Установите его, а затем обязательно **полностью закройте** (проверьте системный трей возле часов) и запустите снова.
 3. Если у вас нет аккаунта, [зарегистрируйтесь здесь](https://secure.byond.com/Join).
 4. **Логинимся:** Нажмите кнопку логина в правой части клиента.
-<figure style="display: block; width: 80%; margin: 20px auto; text-align: center;">
-  <img src="../img/login_screen.png" alt="Интерфейс логина в BYOND" style="width: 100%;">
-  <figcaption style="margin-top: 10px; color: grey; font-style: italic;">Кнопка входа в клиенте</figcaption>
-</figure>
+![Интерфейс логина в BYOND](../img/login_screen.png)
+*Кнопка входа в клиенте*{: .caption }
 
 5. **Заходим на сервер:** Нажмите кнопку **Open**, вставьте адрес сервера или выберите его из закладок.
-<figure style="display: block; width: 80%; margin: 20px auto; text-align: center;">
-  <img src="../img/connect_screen.png" alt="Окно подключения к серверу" style="width: 100%;">
-  <figcaption style="margin-top: 10px; color: grey; font-style: italic;">Окно ввода адреса сервера</figcaption>
-</figure>
+![Окно подключения к серверу](../img/connect_screen.png)
+*Окно ввода адреса сервера*{: .caption }
 ---
 
 ### Информация о сервере

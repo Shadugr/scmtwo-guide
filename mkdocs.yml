@@ -24,7 +24,21 @@ extra:
   generator: false
 extra_assets:
   - robots.txt
-use_directory_urls: false
+use_directory_urls: true
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/header_link.js
+
+nav:
+  - Главная: index.md
+  - Руководство начинающих морпехов:
+    - Как зайти на сервер: guides/server_enter.md
+  - Лор и структура: lore.md
+  # - Механики:
+  - FAQ: faq.md
+
 plugins:
   - search
   - glightbox
