@@ -2,6 +2,23 @@ site_name: Руководство для молодого марина
 theme:
   name: material
   language: ru
+  palette:
+    # USCM Light Mode (Garrison/Uniform)
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue-grey
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to Dark Mode
+    # USCM Dark Mode (Tactical/Night Ops)
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: green
+      toggle:
+        icon: material/weather-night
+        name: Switch to Light Mode
 extra_assets:
   - robots.txt
 use_directory_urls: false
