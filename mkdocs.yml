@@ -1,4 +1,4 @@
-site_name: Руководство для молодого марина
+site_name: Гайды для маринов
 site_url: https://shadugr.github.io/scmtwo-guide/
 theme:
   name: material
@@ -27,3 +27,9 @@ extra_assets:
 use_directory_urls: false
 plugins:
   - search
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
