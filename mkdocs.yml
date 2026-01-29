@@ -1,0 +1,9 @@
+site_name: Руководство для молодого марина
+theme:
+  name: material
+  language: ru
+extra_assets:
+  - robots.txt
+use_directory_urls: false
+plugins:
+  - search
