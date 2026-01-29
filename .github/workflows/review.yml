@@ -1,0 +1,31 @@
+name: Request Review
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  auto-request-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request Review from Owner
+        uses: actions/github-script@v7
+        with:
+          script: |
+            try {
+              const owner = context.repo.owner;
+              // Check if the PR author is NOT the owner (cannot review yourself)
+              if (context.payload.pull_request.user.login !== owner) {
+                await github.rest.pulls.requestReviewers({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: context.issue.number,
+                  reviewers: [owner]
+                });
+                console.log(`Requested review from ${owner}`);
+              } else {
+                console.log("PR author is the owner. Skipping review request.");
+              }
+            } catch (error) {
+              console.error(error);
+              core.setFailed(error.message);
+            }
