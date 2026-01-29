@@ -1,4 +1,5 @@
 site_name: Руководство для молодого марина
+site_url: https://shadugr.github.io/scmtwo-guide/
 theme:
   name: material
   language: ru
