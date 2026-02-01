@@ -35,6 +35,7 @@ nav:
     - Как зайти на сервер: guides/server_enter.md
     - Создание персонажа и выбор роли: guides/lobby.md
     - Интерфейс и управление: guides/interface.md
+    - Первые шаги: guides/awakening.md
   - Лор и структура: lore.md
   # - Механики:
   - FAQ: faq.md
