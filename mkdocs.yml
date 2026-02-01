@@ -37,8 +37,10 @@ nav:
     - Интерфейс и управление: guides/interface.md
     - Первые шаги: guides/awakening.md
     - Арсенал: guides/armoury.md
-  - Лор и структура: lore.md
+  # - Роли:
   # - Механики:
+  - Лор и структура: lore.md
+  - Карты: maps.md
   - FAQ: faq.md
 
 plugins:
