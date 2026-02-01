@@ -41,7 +41,7 @@ nav:
   # - Механики:
   - Лор и структура: lore.md
   - Карты: maps.md
-  - FAQ: faq.md
+  - F.A.Q.: faq.md
 
 plugins:
   - search
