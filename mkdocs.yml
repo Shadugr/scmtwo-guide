@@ -22,8 +22,6 @@ theme:
         name: Switch to Light Mode
 extra:
   generator: false
-extra_assets:
-  - robots.txt
 use_directory_urls: true
 extra_css:
   - stylesheets/extra.css
@@ -36,6 +34,7 @@ nav:
   - Руководство начинающих морпехов:
     - Как зайти на сервер: guides/server_enter.md
     - Создание персонажа и выбор роли: guides/lobby.md
+    - Интерфейс и управление: guides/interface.md
   - Лор и структура: lore.md
   # - Механики:
   - FAQ: faq.md
