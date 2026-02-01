@@ -6,8 +6,8 @@
 * **[Solaris Ridge](maps/Solaris_Ridge.png)**
 * **[Fiorina Science Annex](maps/Prison_Station_Science_Annex.png)**
 * **[Trijent Dam](maps/Trijent_Dam.png)**
-* **[Sorokyne Strata](maps/Sorokyne_Wiki_Map.png)**
-* **[Kutjevo Refinery](maps/Kutjevo_a1.png)**
+* **[Sorokyne Strata](maps/Sorokyne_Wiki_Map.jpg)**
+* **[Kutjevo Refinery](maps/Kutjevo_a1.jpg)**
 * **[Chance's Claim](maps/C_claim.png)**
 * **[New Varadero](maps/New_Varadero.png)**
 * **[BMG290 Otogi Egress Point](maps/BMG290_Otogi_Egress_Point.png)**
