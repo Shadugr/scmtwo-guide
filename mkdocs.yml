@@ -37,7 +37,8 @@ nav:
     - Интерфейс и управление: guides/interface.md
     - Первые шаги: guides/awakening.md
     - Арсенал: guides/armoury.md
-  # - Роли:
+  - Роли:
+    - Сержанты: roles/sergeants.md
   # - Механики:
   - Лор и структура: lore.md
   - Карты: maps.md
