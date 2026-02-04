@@ -38,7 +38,7 @@ nav:
     - Первые шаги: guides/awakening.md
     - Арсенал: guides/armoury.md
   - Роли:
-    -Лидеры: roles/leaders.md
+    - Лидеры: roles/leaders.md
   # - Механики:
   - Лор и структура: lore.md
   - Карты: maps.md
