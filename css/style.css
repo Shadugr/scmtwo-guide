@@ -110,7 +110,59 @@ body::after {
     background-color: var(--accent-green-bright);
     border-radius: 50%;
     margin-right: 8px;
-    animation: blink 2s infinite;
+    animation: blink 4s infinite;
+}
+
+@media (max-width: 768px) {
+    .terminal-error-container {
+        width: 100%;
+        max-width: 350px;
+        /* Prevent it from being too wide on small phones */
+        padding: 1.5rem 1rem;
+        margin: 0 1rem;
+        /* Add margin so it doesn't touch edges */
+        box-sizing: border-box;
+        /* Ensure padding doesn't add to width */
+    }
+
+    .terminal-error-container::before {
+        font-size: 0.8rem;
+        top: -10px;
+        left: 10px;
+        padding: 0 5px;
+    }
+
+    .error-code {
+        font-size: 3.5rem;
+        /* Smaller font to fit */
+        margin-left: -5px;
+        /* Slight visual correction */
+    }
+
+    .error-message {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .terminal-text {
+        font-size: 0.8rem;
+        word-wrap: break-word;
+        /* Prevent long text overflow */
+    }
+
+    .error-actions {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .btn-terminal {
+        width: 100%;
+        text-align: center;
+        padding: 12px 10px;
+        font-size: 0.9rem;
+        box-sizing: border-box;
+    }
 }
 
 @keyframes blink {
@@ -999,14 +1051,20 @@ code {
         width: 280px;
         z-index: 99999;
         /* Above header */
+        z-index: 99999;
+        /* Above header */
         transform: translateX(-100%);
-        transition: transform 0.3s ease;
         box-shadow: 2px 0 15px rgba(0, 0, 0, 0.8);
         background-color: var(--panel-bg);
         /* Ensure solid background */
         overflow-x: hidden;
         /* Prevent horizontal scroll */
         overflow-y: auto;
+    }
+
+    /* Only animate transform when this class is added */
+    .sidebar.animated {
+        transition: transform 0.3s ease;
     }
 
     /* Close Button (Mobile Only) */
@@ -1068,6 +1126,11 @@ code {
     body.sidebar-open .main-content {
         pointer-events: none;
         overflow: hidden;
+    }
+
+    /* BUT keep sidebar itself interactive! */
+    body.sidebar-open .sidebar {
+        pointer-events: auto;
     }
 
     .main-content {

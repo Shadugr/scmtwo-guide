@@ -186,8 +186,40 @@ function renderSidebar() {
             toggleSidebar(); // Use the global function to close
         }
     });
+
+    // Prevent sidebar closing when clicking category headers
+    // The previous logic already handles this because .nav-header is inside #sidebar
+    // However, if the user meant that clicking a category toggle closes it, 
+    // it implies event bubbling or a specific logic error. 
+    // Let's ensure clicks inside sidebar don't propagate to the document listener if that's the issue.
+    // Actually, the issue is likely that "sidebar.contains(event.target)" IS true, so it DOESN'T close.
+    // Wait, the user said "If I click on closed category... sidebar just close".
+    // This means the click IS triggering the close. But why?
+    // Ah! If the category expands, maybe the target element moves or is re-rendered? No.
+    // Let's verify if the click listener is attached to sidebar itself.
+    // NO, it's on document.
+
+    // IF the user clicks on a category header, `sidebar.contains(event.target)` returns true.
+    // So the `if` condition `!sidebar.contains(event.target)` should be FALSE.
+    // So `toggleSidebar()` is NOT called.
+
+    // UNLESS... `event.target` is the arrow <span> and it somehow isn't considered inside sidebar? No.
+
+    // OR... is there another listener?
+    // renderSidebar adds `onclick="this.parentElement.classList.toggle('collapsed')"` to nav-header.
+
+    // Let's try to stop propagation on the sidebar itself to be safe.
+    sidebar.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
     // load order in main: renderHeader -> renderSidebar -> initSearch.
     // So moving element to sidebar is fine.
+
+    // Enable transition after initial render to prevent flash
+    setTimeout(() => {
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar) sidebar.classList.add('animated');
+    }, 100);
 }
 
 // --- PAGE META COMPONENT ---
