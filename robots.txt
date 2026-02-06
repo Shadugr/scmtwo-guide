@@ -1,0 +1,6 @@
+# Block all search engine crawlers
+User-agent: *
+Disallow: /
+
+# Sitemap location (for reference, though we're blocking)
+Sitemap: https://shadugr.github.io/scmtwo-guide/sitemap.xml
