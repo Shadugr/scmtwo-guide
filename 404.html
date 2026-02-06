@@ -6,8 +6,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>ККМП: SYSTEM FAILURE</title>
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- Use absolute paths with repo name for GitHub Pages -->
+    <link rel="icon" href="/scmtwo-guide/favicon.svg" type="image/svg+xml">
+
+    <!-- Try external CSS with repo path -->
+    <link rel="stylesheet" href="/scmtwo-guide/css/style.css">
+
+    <!-- Fallback/Critical CSS for 404 page ensuring it looks right even if path fails -->
+    <style>
+        body {
+            background-color: #0d1117;
+            color: white;
+            font-family: 'Courier New', monospace;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .scanline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.5) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 10;
+            opacity: 0.3;
+        }
+
+        .terminal-error-container {
+            text-align: left;
+            border: 2px solid #da3633;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(218, 54, 51, 0.2);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            background: #161b22;
+        }
+
+        .error-code {
+            font-size: 5em;
+            font-weight: bold;
+            color: #da3633;
+            text-shadow: 2px 2px 0px #000;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .error-message {
+            font-size: 1.5em;
+            color: #f85149;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+
+        .terminal-text {
+            color: #8b949e;
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+
+        .btn-terminal {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid #238636;
+            color: #2ea043;
+            text-decoration: none;
+            text-transform: uppercase;
+            margin-right: 15px;
+            margin-top: 20px;
+            transition: all 0.3s;
+            font-weight: bold;
+            background: rgba(35, 134, 54, 0.1);
+        }
+
+        .btn-terminal:hover {
+            background: #238636;
+            color: white;
+            box-shadow: 0 0 10px rgba(46, 160, 67, 0.4);
+        }
+
+        .btn-terminal.danger {
+            border-color: #da3633;
+            color: #f85149;
+            background: rgba(218, 54, 51, 0.1);
+        }
+
+        .btn-terminal.danger:hover {
+            background: #da3633;
+            color: white;
+            box-shadow: 0 0 10px rgba(218, 54, 51, 0.4);
+        }
+    </style>
 </head>
 
 <body class="error-page-body">
@@ -29,7 +127,7 @@
         <div class="terminal-text">> Rerouting to command center...</div>
 
         <div class="error-actions">
-            <a href="/" class="btn-terminal">REBOOT SYSTEM (HOME)</a>
+            <a href="/scmtwo-guide/" class="btn-terminal">REBOOT SYSTEM (HOME)</a>
             <a href="javascript:history.back()" class="btn-terminal danger">ABORT OPERATION (BACK)</a>
         </div>
     </div>

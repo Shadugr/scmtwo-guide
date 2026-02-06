@@ -50,9 +50,19 @@ function getBasePath() {
             depth++;
         }
     }
-    // Subtract 1 because the first folder is the site root on GitHub Pages
-    // For local testing, this works too
-    if (depth === 0) return '';
+    // Subtract 1 if we are on GitHub Pages (or any subdirectory deployment)
+    // Heuristic: if the hostname contains github.io, we assume the first folder is the project name
+    const isGitHub = window.location.hostname.includes('github.io');
+    if (isGitHub && depth > 0) {
+        depth -= 1;
+    }
+
+    // Also handle local testing with specific repo folder if mapped
+    if (!isGitHub && parts.length > 0 && parts[0] === 'scmtwo-guide') {
+        depth -= 1;
+    }
+
+    if (depth <= 0) return '';
     return '../'.repeat(depth);
 }
 
