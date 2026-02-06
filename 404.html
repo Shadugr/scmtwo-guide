@@ -6,14 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>ККМП: ОШИБКА СИСТЕМЫ</title>
-    <!-- Use absolute paths with repo name for GitHub Pages -->
-    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 
-    <!-- Try external CSS with repo path -->
-    <link rel="stylesheet" href="../css/style.css">
+    <!-- Dynamic path detection for GitHub Pages vs Local -->
+    <script>
+        // Check if we are in the repository folder (GitHub Pages or local subfolder)
+        const pathPrefix = window.location.pathname.startsWith('/scmtwo-guide') ? '/scmtwo-guide' : '';
+
+        document.write(`<link rel="icon" href="${pathPrefix}/favicon.svg" type="image/svg+xml">`);
+        document.write(`<link rel="stylesheet" href="${pathPrefix}/css/style.css">`);
+    </script>
 
     <!-- Fallback/Critical CSS for 404 page ensuring it looks right even if path fails -->
-    
+
 </head>
 
 <body class="error-page-body">
@@ -35,9 +39,18 @@
         <div class="terminal-text">> Перенаправление в командный центр...</div>
 
         <div class="error-actions">
-            <a href="../.." class="btn-terminal">ПЕРЕЗАГРУЗКА (ГЛАВНАЯ)</a>
+            <!-- Dynamic Home Link -->
+            <a href="/" id="home-btn" class="btn-terminal">ПЕРЕЗАГРУЗКА (ГЛАВНАЯ)</a>
             <a href="javascript:history.back()" class="btn-terminal danger">ОТМЕНА ОПЕРАЦИИ (НАЗАД)</a>
         </div>
+    </div>
+
+    <script>
+        // Update Home button link based on environment
+        // Uses the same logic as the head script
+        const prefix = window.location.pathname.startsWith('/scmtwo-guide') ? '/scmtwo-guide/' : '/';
+        document.getElementById('home-btn').href = prefix;
+    </script>
     </div>
 
 </body>
