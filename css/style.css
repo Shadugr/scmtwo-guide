@@ -35,7 +35,12 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    flex-direction: column;
     overflow: hidden;
+}
+
+.no-scroll {
+    overflow: hidden !important;
 }
 
 /* --- SCANLINE OVERLAY --- */
@@ -62,7 +67,14 @@ body::after {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
-    z-index: 2;
+    z-index: 20;
+    position: relative;
+    /* Ensure z-index applies */
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
 }
 
 .logo-text h1 {
@@ -216,9 +228,7 @@ body::after {
 }
 
 @media (max-width: 768px) {
-    .header-search {
-        display: none;
-    }
+    /* Search visibility handled in main responsive block now */
 }
 
 
@@ -932,32 +942,137 @@ code {
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
+    .top-bar {
+        padding: 0.5rem 1rem;
+        flex-wrap: wrap;
+        gap: 10px;
+        z-index: 100;
+        /* Lower than sidebar */
+    }
+
+    /* Menu Button - Borderless, minimal style */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--accent-green-bright);
+        padding: 8px 10px;
+        font-size: 1.6rem;
+        cursor: pointer;
+        margin-right: 10px;
+        transition: all 0.2s;
+        text-shadow: 0 0 8px rgba(46, 160, 67, 0.5);
+    }
+
+    .menu-toggle:hover,
+    .menu-toggle:active {
+        color: #fff;
+        text-shadow: 0 0 12px rgba(46, 160, 67, 0.8);
+    }
+
+    /* Make search visible and full width on mobile */
+    .header-search {
+        display: block !important;
+        flex: 0 0 100%;
+        order: 3;
+        margin-right: 0;
+        margin-top: 5px;
+    }
+
+    .logo-text h1 {
+        font-size: 1.2rem;
+    }
+
     .container {
         flex-direction: column;
+        z-index: auto;
+        /* Reset stacking context so sidebar can escape */
+        position: static;
+        /* Remove positioning to free sidebar z-index */
     }
 
     .sidebar {
-        position: absolute;
+        position: fixed;
+        top: 0;
+        left: 0;
         height: 100%;
-        z-index: 100;
+        width: 280px;
+        z-index: 99999;
+        /* Above header */
         transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        box-shadow: 2px 0 15px rgba(0, 0, 0, 0.8);
+        background-color: var(--panel-bg);
+        /* Ensure solid background */
+        overflow-x: hidden;
+        /* Prevent horizontal scroll */
+        overflow-y: auto;
+    }
+
+    /* Close Button (Mobile Only) */
+    .close-sidebar {
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent background for visibility */
+        border: 1px solid #30363d;
+        border-radius: 4px;
+        color: var(--text-dim);
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 100002;
+        line-height: 1;
+        padding: 0 6px 4px 6px;
+        width: auto;
+    }
+
+    .sidebar-content {
+        margin-top: 30px;
+        /* Push content down so button doesn't overlap text */
+    }
+
+    .close-sidebar:hover {
+        color: var(--accent-red);
     }
 
     .sidebar.open {
         transform: translateX(0);
     }
 
-    .menu-toggle {
+    /* Blocking Overlay - covers entire screen when sidebar is open */
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 99998;
+        /* Just below sidebar */
+    }
+
+    .sidebar.open~.sidebar-overlay,
+    body.sidebar-open .sidebar-overlay {
         display: block;
-        background: none;
-        border: 1px solid var(--accent-green);
-        color: var(--accent-green);
-        padding: 5px;
-        cursor: pointer;
+    }
+
+    /* When sidebar is open, prevent interaction with main content */
+    body.sidebar-open .container {
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    body.sidebar-open .main-content {
+        pointer-events: none;
+        overflow: hidden;
     }
 
     .main-content {
         padding: 1rem;
+        width: 100%;
     }
 
     .content-frame {
@@ -967,6 +1082,11 @@ code {
 
 @media (min-width: 769px) {
     .menu-toggle {
+        display: none;
+    }
+
+    /* Verify close button is hidden on desktop */
+    .close-sidebar {
         display: none;
     }
 }

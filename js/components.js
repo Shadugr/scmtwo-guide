@@ -76,7 +76,7 @@ function renderHeader() {
     header.className = 'top-bar';
     header.innerHTML = `
         <div class="logo-area">
-            <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
             <a href="${basePath}" class="logo-text" style="text-decoration: none;">
                 <h1>${SITE_CONFIG.siteName} <small style="font-size: 0.5em; opacity: 0.7;">// ВИКИ</small></h1>
                 <span>${SITE_CONFIG.siteSubtitle}</span>
@@ -147,6 +147,7 @@ function renderSidebar() {
 
     sidebar.className = 'sidebar';
     sidebar.innerHTML = `
+        <button class="close-sidebar" onclick="toggleSidebar()" aria-label="Close Menu">×</button>
         <div class="sidebar-content">
             ${sectionsHtml}
         </div>
@@ -159,11 +160,33 @@ function renderSidebar() {
         </div>
     `;
 
-    // Re-bind search functionality since elements replaced
-    // initSearch is called in DOMContentLoaded, but we just re-rendered sidebar.
-    // However, currently renderSidebar is called ONCE at load.
-    // But initSearch attaches listeners. If we run correct order it's fine.
-    // load order in main: renderHeader -> renderSidebar -> initSearch. 
+    // Re-bind search functionality
+    initSearch();
+
+    // Global function to toggle sidebar and handle body scroll lock
+    window.toggleSidebar = function () {
+        const sidebar = document.getElementById('sidebar');
+        const body = document.body;
+        sidebar.classList.toggle('open');
+        if (sidebar.classList.contains('open')) {
+            body.classList.add('sidebar-open');
+        } else {
+            body.classList.remove('sidebar-open');
+        }
+    };
+    // Close sidebar when clicking outside (on the overlay)
+    document.addEventListener('click', function (event) {
+        const sidebar = document.getElementById('sidebar');
+        const menuToggle = document.querySelector('.menu-toggle');
+
+        // If sidebar is open, and click is NOT on sidebar and NOT on menu toggle
+        if (sidebar.classList.contains('open') &&
+            !sidebar.contains(event.target) &&
+            !menuToggle.contains(event.target)) {
+            toggleSidebar(); // Use the global function to close
+        }
+    });
+    // load order in main: renderHeader -> renderSidebar -> initSearch.
     // So moving element to sidebar is fine.
 }
 
