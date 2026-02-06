@@ -58,6 +58,10 @@ body::after {
     pointer-events: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* --- HEADER --- */
 .top-bar {
     background-color: #010409;
@@ -70,6 +74,13 @@ body::after {
     z-index: 20;
     position: relative;
     /* Ensure z-index applies */
+    transition: transform 0.3s ease;
+    /* For hide on scroll */
+}
+
+/* Class to hide header on scroll */
+.top-bar.header-hidden {
+    transform: translateY(-100%);
 }
 
 .logo-area {
@@ -111,6 +122,41 @@ body::after {
     border-radius: 50%;
     margin-right: 8px;
     animation: blink 4s infinite;
+}
+
+/* --- BACK TO TOP BUTTON --- */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--accent-green);
+    color: #000;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* Circle */
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--accent-green);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.back-to-top:hover {
+    background: var(--accent-green-bright);
+    box-shadow: 0 0 15px var(--accent-green-bright);
+    transform: translateY(-3px);
 }
 
 @media (max-width: 768px) {
@@ -474,7 +520,13 @@ body::after {
 
 .nav-toggle {
     transition: transform 0.3s;
-    font-size: 0.7rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-toggle svg {
+    width: 16px;
+    height: 16px;
 }
 
 .nav-section.collapsed .nav-toggle {
@@ -879,7 +931,75 @@ figcaption {
     background: rgba(255, 255, 255, 0.02);
 }
 
-/* --- CODE BLOCKS --- */
+/* --- INLINE ICONS --- */
+.icon-inline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+.icon-inline svg {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.icon-info {
+    color: #58a6ff;
+}
+
+.icon-warning {
+    color: var(--accent-alert);
+}
+
+.icon-danger {
+    color: var(--accent-red);
+}
+
+.icon-check {
+    color: var(--accent-green);
+}
+
+.icon-star {
+    color: #e3b341;
+}
+
+.icon-clipboard {
+    color: #8b949e;
+}
+
+.icon-edit {
+    color: #8b949e;
+}
+
+.icon-pin {
+    color: var(--accent-red);
+}
+
+.icon-search {
+    color: var(--accent-green);
+}
+
+.icon-settings {
+    color: #8b949e;
+}
+
+.icon-abstract {
+    color: #d2a8ff;
+    /* Purple */
+}
+
+.icon-quote {
+    color: #7d8590;
+    /* Gray */
+}
+
+/* Admonition Title adjustment for icons */
+.admonition-title .icon-inline {
+    margin-right: 8px;
+}
+
 code {
     background: rgba(110, 118, 129, 0.4);
     padding: 0.2em 0.4em;
@@ -1000,6 +1120,17 @@ code {
         gap: 10px;
         z-index: 100;
         /* Lower than sidebar */
+        position: fixed;
+        /* Fixed so it overlays content and doesn't leave gap */
+        top: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Add padding to main content to account for fixed header */
+    .main-content {
+        padding-top: 120px;
+        /* Header height + buffer */
     }
 
     /* Menu Button - Borderless, minimal style */
@@ -1009,17 +1140,23 @@ code {
         border: none;
         color: var(--accent-green-bright);
         padding: 8px 10px;
-        font-size: 1.6rem;
+        font-size: 0;
+        /* Hide any fallback text */
         cursor: pointer;
         margin-right: 10px;
         transition: all 0.2s;
-        text-shadow: 0 0 8px rgba(46, 160, 67, 0.5);
+        filter: drop-shadow(0 0 5px rgba(46, 160, 67, 0.5));
+    }
+
+    .menu-toggle svg {
+        width: 32px;
+        height: 32px;
     }
 
     .menu-toggle:hover,
     .menu-toggle:active {
         color: #fff;
-        text-shadow: 0 0 12px rgba(46, 160, 67, 0.8);
+        filter: drop-shadow(0 0 8px rgba(46, 160, 67, 0.8));
     }
 
     /* Make search visible and full width on mobile */
@@ -1078,12 +1215,20 @@ code {
         border: 1px solid #30363d;
         border-radius: 4px;
         color: var(--text-dim);
-        font-size: 1.5rem;
+        font-size: 0;
         cursor: pointer;
         z-index: 100002;
-        line-height: 1;
-        padding: 0 6px 4px 6px;
+        line-height: 0;
+        padding: 8px;
         width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .close-sidebar svg {
+        width: 20px;
+        height: 20px;
     }
 
     .sidebar-content {

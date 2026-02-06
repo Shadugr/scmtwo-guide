@@ -5,17 +5,142 @@
 
 // --- CONFIGURATION ---
 const SITE_CONFIG = {
-    siteName: 'ККМП',
-    siteSubtitle: 'БАЗА ЗНАНИЙ КОРПУСА'
+    siteName: 'KKMП',
+    siteSubtitle: 'БАЗА ЗНАНИЙ КОРПУСА',
+    repoName: 'scmtwo-guide'
 };
+
+// --- ICON SYSTEM ---
+function getIcon(name) {
+    const icons = {
+        menu: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`,
+        close: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`,
+        chevronDown: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`,
+        arrowUp: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>`,
+        // Admonition / Status Icons
+        info: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`,
+        warning: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
+        danger: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`,
+        check: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`,
+        star: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
+        link: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>`,
+        clipboard: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>`,
+        edit: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>`,
+        pin: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>`,
+        search: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`,
+        settings: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>`,
+        bug: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M16 16v-3a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"></path><path d="M4.17 10.74l3.12 3.86"></path><path d="M19.83 10.74l-3.12 3.86"></path><path d="M10 2l-2 3"></path><path d="M14 2l2 3"></path><path d="M22 6h-6"></path><path d="M8 6H2"></path></svg>`,
+        quote: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path></svg>`,
+        list: `<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>`
+    };
+    return icons[name] || '';
+}
+
+// --- HELPER: Replace Text Symbols with SVGs ---
+function replaceSymbolsWithIcons() {
+    // 1. Context-Aware Admonition Icons
+    const admonitions = document.querySelectorAll('.admonition');
+    admonitions.forEach(block => {
+        let iconName = 'info'; // Default
+        let className = 'icon-info';
+
+        if (block.classList.contains('danger') || block.classList.contains('failure') || block.classList.contains('error')) {
+            iconName = 'danger';
+            className = 'icon-danger';
+        } else if (block.classList.contains('warning') || block.classList.contains('alert')) {
+            iconName = 'warning';
+            className = 'icon-warning';
+        } else if (block.classList.contains('success') || block.classList.contains('check')) {
+            iconName = 'check';
+            className = 'icon-check';
+        } else if (block.classList.contains('abstract') || block.classList.contains('summary') || block.classList.contains('note')) {
+            iconName = 'clipboard'; // Abstract/Note
+            className = 'icon-abstract';
+        } else if (block.classList.contains('quote') || block.classList.contains('cite')) {
+            iconName = 'quote';
+            className = 'icon-quote';
+        } else if (block.classList.contains('bug')) {
+            iconName = 'bug';
+            className = 'icon-danger';
+        }
+
+        // Find title
+        const title = block.querySelector('.admonition-title');
+        if (title) {
+            // Remove existing unicode symbols from start of text
+            // Regex to remove common emojis and space
+            const regex = /^[\s\u2139\u26A0\u2713\u2714\u2605\u2606\uD83D\uDCCB\uD83D\uDCDD\uD83D\uDCCC\uD83D\uDCCD\uD83D\uDD0D\u2699\uFE0F]*\s*/;
+
+            // Check if we already injected an icon (to prevent duplicates)
+            if (!title.querySelector('.icon-inline')) {
+                // Get text node
+                let textNode = Array.from(title.childNodes).find(n => n.nodeType === 3);
+                if (textNode) {
+                    textNode.nodeValue = textNode.nodeValue.replace(regex, ''); // Strip symbol
+                }
+
+                // Inject Icon
+                const iconSpan = document.createElement('span');
+                iconSpan.className = `icon-inline ${className}`;
+                iconSpan.innerHTML = getIcon(iconName);
+                title.prepend(iconSpan);
+            }
+        }
+    });
+
+    // 2. Inline Text Replacement (for other symbols outside admonitions)
+    const map = {
+        'ℹ': 'info',
+        '⚠': 'warning',
+        '✓': 'check',
+        '✔': 'check',
+        '★': 'star',
+        '☆': 'star',
+        '📋': 'clipboard',
+        '📝': 'edit',
+        '📌': 'pin',
+        '📍': 'pin',
+        '🔍': 'search',
+        '⚙️': 'settings',
+        '⚙': 'settings' // Variation without selector
+    };
+
+    // Target common containers for symbols
+    const targets = document.querySelectorAll('.main-content, .admonition-title, blockquote, p, li, td');
+
+    targets.forEach(el => {
+        // Skip if already processed or has children (to avoid breaking DOM, handle text nodes only)
+        // Actually, safer to iterate childNodes
+        el.childNodes.forEach(node => {
+            if (node.nodeType === 3) { // Text node
+                let text = node.nodeValue;
+                let changed = false;
+
+                for (const [symbol, iconName] of Object.entries(map)) {
+                    if (text.includes(symbol)) {
+                        // We need to split and insert HTML
+                        // Since we can't replace text node with HTML directly easily in this loop without breaking iteration,
+                        // we'll replace the text node with a span containing the new HTML
+                        const span = document.createElement('span');
+                        span.className = 'symbol-replaced';
+                        // Replace symbol with icon
+                        span.innerHTML = text.replace(new RegExp(symbol, 'g'), `<span class="icon-inline icon-${iconName}">${getIcon(iconName)}</span>`);
+                        node.parentNode.replaceChild(span, node);
+                        changed = true;
+                        break; // Stop processing this node to avoid re-entry issues
+                    }
+                }
+            }
+        });
+    });
+}
 
 // --- NAVIGATION DATA ---
 const NAV_SECTIONS = [
     {
-        title: 'ИНФОРМАЦИЯ',
+        title: 'ГЛАВНОЕ',
         links: [
-            { href: '', text: 'Главная' },
-            { href: 'lore/', text: 'Лор и структура' },
+            { href: 'index.html', text: 'Мир и Структура' },
             { href: 'maps/', text: 'Карты' },
             { href: 'faq/', text: 'F.A.Q.' }
         ]
@@ -43,11 +168,18 @@ function getBasePath() {
     const path = window.location.pathname;
     // Count depth: /guides/lobby/index.html = 2 levels deep from root
     const parts = path.split('/').filter(p => p && p !== 'index.html');
-    // Remove empty strings and count directories
-    let depth = 0;
-    for (const part of parts) {
-        if (!part.endsWith('.html')) {
-            depth++;
+    let depth = parts.length;
+
+    // Adjust depth based on site structure assumptions
+    if (path.endsWith('.html')) {
+        depth--; // file itself doesn't count as a folder level
+    } else {
+        // If it's a folder path like /guides/lobby/ (which serves index.html implicitly)
+        // Check if last part is empty due to trailing slash
+        if (path.endsWith('/')) {
+            // depth is fine
+        } else {
+            // /guides/lobby -> load index.html, depth is correct
         }
     }
     // Subtract 1 if we are on GitHub Pages (or any subdirectory deployment)
@@ -58,7 +190,8 @@ function getBasePath() {
     }
 
     // Also handle local testing with specific repo folder if mapped
-    if (!isGitHub && parts.length > 0 && parts[0] === 'scmtwo-guide') {
+    // This is now handled by SITE_CONFIG.repoName and the depth calculation
+    if (!isGitHub && parts.length > 0 && parts[0] === SITE_CONFIG.repoName) {
         depth -= 1;
     }
 
@@ -76,7 +209,7 @@ function renderHeader() {
     header.className = 'top-bar';
     header.innerHTML = `
         <div class="logo-area">
-            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle Menu">${getIcon('menu')}</button>
             <a href="${basePath}" class="logo-text" style="text-decoration: none;">
                 <h1>${SITE_CONFIG.siteName} <small style="font-size: 0.5em; opacity: 0.7;">// ВИКИ</small></h1>
                 <span>${SITE_CONFIG.siteSubtitle}</span>
@@ -90,6 +223,54 @@ function renderHeader() {
 
     // Initialize search
     initSearch();
+
+    // Scroll Handler (Mobile Header & Back-to-Top)
+    let lastScrollY = 0;
+    const headerElement = document.getElementById('site-header');
+    const mainContent = document.querySelector('.main-content'); // Scrollable element on mobile
+
+    // Create Back to Top Button
+    const topBtn = document.createElement('button');
+    topBtn.className = 'back-to-top';
+    topBtn.innerHTML = getIcon('arrowUp');
+    topBtn.onclick = () => {
+        // Scroll both window and container to be safe
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (mainContent) mainContent.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    document.body.appendChild(topBtn);
+
+    // Use the scrollable element instead of window
+    const scrollTarget = mainContent || window;
+
+    const handleScroll = () => {
+        const currentScrollY = scrollTarget.scrollTop || window.scrollY;
+
+        // --- 1. Header Logic (Mobile Only) ---
+        if (window.innerWidth <= 768) {
+            // "Appear only on top of page"
+            if (currentScrollY > 50) {
+                headerElement.classList.add('header-hidden');
+            } else {
+                headerElement.classList.remove('header-hidden');
+            }
+        }
+
+        // --- 2. Back to Top Logic ---
+        if (currentScrollY > 300) {
+            topBtn.classList.add('visible');
+        } else {
+            topBtn.classList.remove('visible');
+        }
+
+        lastScrollY = currentScrollY;
+    };
+
+    scrollTarget.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true }); // Fallback
+
+    // Run symbol replacement
+    replaceSymbolsWithIcons();
 }
 
 // --- SIDEBAR COMPONENT ---
@@ -138,7 +319,7 @@ function renderSidebar() {
             <div class="nav-section ${collapsedClass}">
                 <div class="nav-header" onclick="this.parentElement.classList.toggle('collapsed')">
                     ${section.title}
-                    <span class="nav-toggle">▼</span>
+                    <span class="nav-toggle">${getIcon('chevronDown')}</span>
                 </div>
                 <div class="nav-links">${linksHtml}</div>
             </div>
@@ -147,7 +328,7 @@ function renderSidebar() {
 
     sidebar.className = 'sidebar';
     sidebar.innerHTML = `
-        <button class="close-sidebar" onclick="toggleSidebar()" aria-label="Close Menu">×</button>
+        <button class="close-sidebar" onclick="toggleSidebar()" aria-label="Close Menu">${getIcon('close')}</button>
         <div class="sidebar-content">
             ${sectionsHtml}
         </div>
