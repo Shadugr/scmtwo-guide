@@ -620,6 +620,8 @@ h1.page-title {
     border-bottom: 1px solid #30363d;
     padding-bottom: 1rem;
     display: flex;
+    flex-wrap: wrap;
+    /* Prevent overflow on small screens */
     align-items: center;
     gap: 15px;
 }
@@ -1129,8 +1131,18 @@ code {
 
     /* Add padding to main content to account for fixed header */
     .main-content {
-        padding-top: 120px;
+        padding-top: 150px !important;
         /* Header height + buffer */
+    }
+
+    /* Fix anchor scrolling overlapping with fixed header */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        scroll-margin-top: 160px;
     }
 
     /* Menu Button - Borderless, minimal style */
