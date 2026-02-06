@@ -102,9 +102,17 @@ function renderSidebar() {
     if (!sidebar) return;
 
     const basePath = getBasePath();
-    // Get current path segments for matching (e.g., /guides/lobby/ -> ['guides', 'lobby'])
-    const pathParts = window.location.pathname.split('/').filter(p => p && p !== 'index.html');
-    const currentPath = pathParts.join('/');
+    // Get current path segments for matching
+    // Filter empty and index.html
+    const rawParts = window.location.pathname.split('/').filter(p => p && p !== 'index.html');
+
+    // Remove repository name if present (GitHub Pages or local repo folder)
+    // This ensures /scmtwo-guide/guides/lobby/ matches guides/lobby/
+    if (rawParts.length > 0 && rawParts[0] === 'scmtwo-guide') {
+        rawParts.shift();
+    }
+
+    const currentPath = rawParts.join('/');
 
     let sectionsHtml = NAV_SECTIONS.map((section, index) => {
         let hasActiveLink = false;
@@ -112,9 +120,12 @@ function renderSidebar() {
         const linksHtml = section.links.map(link => {
             const href = basePath + link.href;
             // Check if current path matches link href (without trailing slash)
+            // Normalize: remove trailing slash from link.href
             const linkPath = link.href.replace(/\/$/, '');
+
+            // Check exact match OR root match
             const isActive = (currentPath === linkPath) ||
-                (link.href === '' && (currentPath === '' || pathParts.length === 0));
+                (link.href === '' && (currentPath === '' || rawParts.length === 0));
 
             if (isActive) {
                 hasActiveLink = true;
