@@ -83,12 +83,8 @@ function renderHeader() {
             </a>
         </div>
         <div class="header-search">
-            <input type="text" class="search-input" placeholder="Поиск..." id="site-search">
+            <input type="text" class="search-input" placeholder="ПОИСК ПО БАЗЕ..." id="site-search">
             <div class="search-results" id="search-results"></div>
-        </div>
-        <div class="user-status">
-            <span class="status-light"></span>
-            БАЗА ДАННЫХ: <strong>ОНЛАЙН</strong>
         </div>
     `;
 
@@ -155,10 +151,20 @@ function renderSidebar() {
             ${sectionsHtml}
         </div>
         <div class="sidebar-footer">
+            <div class="footer-status">
+                 БАЗА ДАННЫХ: <span class="status-online">ОНЛАЙН</span>
+            </div>
             КОРП. ВЕЙЛАНД-ЮТАНИ<br>
             ИДЕНТИФИКАТОР ТЕРМИНАЛА: Т-884
         </div>
     `;
+
+    // Re-bind search functionality since elements replaced
+    // initSearch is called in DOMContentLoaded, but we just re-rendered sidebar.
+    // However, currently renderSidebar is called ONCE at load.
+    // But initSearch attaches listeners. If we run correct order it's fine.
+    // load order in main: renderHeader -> renderSidebar -> initSearch. 
+    // So moving element to sidebar is fine.
 }
 
 // --- PAGE META COMPONENT ---
