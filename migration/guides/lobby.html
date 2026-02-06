@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ККМП: Создание персонажа</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header id="site-header"></header>
+
+    <div class="container">
+        <nav id="sidebar"></nav>
+
+        <main class="main-content">
+            <div class="content-frame">
+                <h1 class="page-title">Создание персонажа и выбор роли</h1>
+                <div id="page-meta"></div>
+
+                <p>После того как вы зашли на сервер (подробнее в разделе <a href="server_enter.html">Как
+                        зайти на сервер</a>), перед вами откроется главное меню. Здесь начинается ваш путь в рядах USCM.
+                </p>
+
+                <h2>Первое появление</h2>
+                <p>Если вы зашли впервые, вам нужно создать своего бойца. Нажмите кнопку <strong>Setup
+                        Character</strong> в главном меню.</p>
+
+                <figure>
+                    <img src="../img/UHCtdwLc89.png" alt="Главное меню: Кнопка настройки персонажей">
+                    <figcaption>Кнопка настройки персонажей</figcaption>
+                </figure>
+
+                <h2>Выбор специализации (Roles)</h2>
+                <p>Первым делом выберем вашу роль. Нажмите на пункт <strong>Set Role Preference</strong>.</p>
+
+                <figure>
+                    <img src="../img/KlD3RD3Pm0.png" alt="Выбор роли">
+                    <figcaption>Выбор роли</figcaption>
+                </figure>
+
+                <div class="admonition success">
+                    <span class="admonition-title">✔ Совет для новичков</span>
+                    Для первого вылета мы настоятельно рекомендуем роль <strong>Пехотинца (Rifleman)</strong>. Это
+                    универсальный боец с огромным выбором оружия и минимумом ответственности. Идеально, чтобы
+                    осмотреться и не подвести команду.
+                </div>
+
+                <h3>Обзор доступных ролей</h3>
+                <p>Перед выбором роли оцените свои силы:</p>
+                <ul>
+                    <li><strong>Сложность</strong> — сколько нужно знать (механики, кнопки, правила).</li>
+                    <li><strong>Интенсивность</strong> — насколько быстро придется действовать и как много событий будет
+                        вокруг.</li>
+                </ul>
+
+                <table class="uscm-table">
+                    <thead>
+                        <tr>
+                            <th>Роль</th>
+                            <th>Задачи в бою</th>
+                            <th style="text-align: center;">Сложность</th>
+                            <th style="text-align: center;">Интенсивность</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Командир взвода</strong></td>
+                            <td>Стратегия, брифинги и запросы снабжения с корабля.</td>
+                            <td style="text-align: center;">Низкая</td>
+                            <td style="text-align: center;">Низкая</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Пилот</strong></td>
+                            <td>Десантирование, авиаподдержка (CAS) и эвакуация.</td>
+                            <td style="text-align: center;">Средняя</td>
+                            <td style="text-align: center;">Низкая</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Экипаж техники</strong></td>
+                            <td>Управление и ремонт танков, БТР и БМП.</td>
+                            <td style="text-align: center;">Средняя</td>
+                            <td style="text-align: center;">Средняя</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Лидер отряда</strong></td>
+                            <td>Командир отряда (13 чел.). Полевой лидер и координатор.</td>
+                            <td style="text-align: center;">Высокая</td>
+                            <td style="text-align: center;">Высокая</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Лидер группы</strong></td>
+                            <td>Командует своей огневой группой.</td>
+                            <td style="text-align: center;">Средняя</td>
+                            <td style="text-align: center;">Низкая-Высокая</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Медик</strong></td>
+                            <td>Полевая хирургия, реанимация и спасение жизней.</td>
+                            <td style="text-align: center;">Высокая</td>
+                            <td style="text-align: center;">Огромная!</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Смартганнер</strong></td>
+                            <td>Подавление врага огнем «умного» пулемета.</td>
+                            <td style="text-align: center;">Средняя</td>
+                            <td style="text-align: center;">Высокая</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Пехотинец</strong></td>
+                            <td>Универсальный боец. Основа огневой мощи.</td>
+                            <td style="text-align: center;">Низкая</td>
+                            <td style="text-align: center;">Низкая-Высокая</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Иерархия лидеров</h4>
+                <p>Чтобы не путаться в рации и понимать, кто ваш непосредственный начальник:</p>
+                <ul>
+                    <li><strong>Лидер отряда:</strong> Главный в отряде. Он видит картину боя целиком и командует всем
+                        отрядом.</li>
+                    <li><strong>Лидер группы:</strong> Помощник лидера отряда. Командует своей огневой группой для
+                        выполнения локальных задач.</li>
+                </ul>
+
+                <h2>Настройка внешности и перков</h2>
+                <p>Теперь настроим детали вашего бойца. В меню настройки вы найдете пункты: <strong>Appearance</strong>
+                    (внешность), <strong>Background information</strong> (биография), <strong>TTS Voice</strong> (голос)
+                    и <strong>Perks</strong> (перки).</p>
+
+                <figure>
+                    <img src="../img/kd66nyMf35.png" alt="Меню настройки персонажа">
+                    <figcaption>Настройте внешку и выберите кастомное снаряжение</figcaption>
+                </figure>
+
+                <ul>
+                    <li><strong>Кастомное снаряжение:</strong> Здесь можно выбрать приятные мелочи (вроде любимой
+                        зажигалки). Основную броню и пушку вы получите уже в арсенале на старте.</li>
+                    <li><strong>Перки:</strong> Это ваши пассивные бонусы.</li>
+                </ul>
+
+                <div class="admonition danger">
+                    <span class="admonition-title">⚠ Медицинский совет по перкам</span>
+                    <strong>Не берите «Устойчивость к химикатам»!</strong> Если вы получите тяжелое ранение, медикам
+                    придется вливать в вас литры лекарств. С этим перком ваш организм будет сопротивляться лечению, и вы
+                    просто умрете на операционном столе.
+                </div>
+
+                <div class="admonition info">
+                    <span class="admonition-title">ℹ Выбор редакции: «Стальная челюсть»</span>
+                    Этот перк не дает вам выронить предмет изо рта (например, сигарету), когда вас сбивают с ног. Не
+                    позволяйте ксеносам мешать вам докуривать ваш Lucky Strike!
+                </div>
+
+                <h2>Завершение</h2>
+                <p>После того как всё настроено:</p>
+                <ol>
+                    <li>Нажмите кнопку <strong>Save Setup</strong>, чтобы сохранить персонажа.</li>
+                    <li>Закройте редактор.</li>
+                    <li>Нажмите кнопку <strong>Declare Ready</strong> (Готовность) в главном меню.</li>
+                </ol>
+                <p><strong>Увидимся в десантном отсеке, морпех!</strong></p>
+
+                <div id="author-card"></div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/components.js"></script>
+    <script>
+        renderPageMeta('Создание персонажа', 'Руководство начинающих морпехов', '06.02.2026', 'ВСЕМ');
+        renderAuthorCard('Foluben');
+    </script>
+</body>
+
+</html>
