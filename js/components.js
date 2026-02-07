@@ -167,33 +167,42 @@ const NAV_SECTIONS = [
 // --- HELPER: Get base path for links ---
 function getBasePath() {
     const path = window.location.pathname;
-    // Count depth: /guides/lobby/index.html = 2 levels deep from root
-    const parts = path.split('/').filter(p => p && p !== 'index.html');
-    let depth = parts.length;
 
-    // Adjust depth based on site structure assumptions
-    if (path.endsWith('.html')) {
-        depth--; // file itself doesn't count as a folder level
-    } else {
-        // If it's a folder path like /guides/lobby/ (which serves index.html implicitly)
-        // Check if last part is empty due to trailing slash
-        if (path.endsWith('/')) {
-            // depth is fine
-        } else {
-            // /guides/lobby -> load index.html, depth is correct
+    // Configured repo name
+    const repoName = SITE_CONFIG.repoName || 'scmtwo-guide';
+
+    // Split path into parts, removing empty strings
+    const parts = path.split('/').filter(p => p.length > 0);
+
+    // Find where the repo is in the path
+    let repoIndex = parts.indexOf(repoName);
+
+    let depth = 0;
+
+    if (repoIndex !== -1) {
+        // We are inside the repo.
+        // Everything AFTER the repo name matches the folder structure relative to repo root.
+        const pathAfterRepo = parts.slice(repoIndex + 1);
+        depth = pathAfterRepo.length;
+
+        // If the last part is a file (has extension), it sits in the folder, so we don't go up for it.
+        // UNLESS it is a folder that happens to have a dot, but standard practice here is .html
+        if (pathAfterRepo.length > 0) {
+            const lastPart = pathAfterRepo[pathAfterRepo.length - 1];
+            if (lastPart.includes('.')) {
+                // It's a file
+                depth--;
+            }
         }
-    }
-    // Subtract 1 if we are on GitHub Pages (or any subdirectory deployment)
-    // Heuristic: if the hostname contains github.io, we assume the first folder is the project name
-    const isGitHub = window.location.hostname.includes('github.io');
-    if (isGitHub && depth > 0) {
-        depth -= 1;
-    }
-
-    // Also handle local testing with specific repo folder if mapped
-    // This is now handled by SITE_CONFIG.repoName and the depth calculation
-    if (!isGitHub && parts.length > 0 && parts[0] === SITE_CONFIG.repoName) {
-        depth -= 1;
+    } else {
+        // Localhost logic (no repo prefix) or domain root
+        depth = parts.length;
+        if (parts.length > 0) {
+            const lastPart = parts[parts.length - 1];
+            if (lastPart.includes('.')) {
+                depth--;
+            }
+        }
     }
 
     if (depth <= 0) return '';
