@@ -140,7 +140,7 @@ const NAV_SECTIONS = [
     {
         title: 'ГЛАВНОЕ',
         links: [
-            { href: '/', text: 'Главная' },
+            { href: '', text: 'Главная' },
             { href: 'lore/', text: 'Мир и Структура' },
             { href: 'maps/', text: 'Карты' },
             { href: 'faq/', text: 'F.A.Q.' }
