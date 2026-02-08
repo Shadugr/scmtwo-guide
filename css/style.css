@@ -939,6 +939,14 @@ figcaption {
 }
 
 /* --- TABLES --- */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+    border: 1px solid #30363d;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
 .uscm-table {
     width: 100%;
     border-collapse: collapse;
