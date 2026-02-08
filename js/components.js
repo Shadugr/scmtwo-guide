@@ -138,7 +138,7 @@ function replaceSymbolsWithIcons() {
 // --- NAVIGATION DATA ---
 const NAV_SECTIONS = [
     {
-        title: 'ГЛАВНОЕ',
+        title: 'ИНФОРМАЦИЯ',
         links: [
             { href: '', text: 'Главная' },
             { href: 'lore/', text: 'Мир и Структура' },
