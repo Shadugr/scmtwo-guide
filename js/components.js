@@ -161,6 +161,12 @@ const NAV_SECTIONS = [
         links: [
             { href: 'roles/leaders/', text: 'Лидеры' }
         ]
+    },
+    {
+        title: 'МЕХАНИКИ',
+        links: [
+            { href: 'mechanics/medicine/', text: 'Медицина' }
+        ]
     }
 ];
 
