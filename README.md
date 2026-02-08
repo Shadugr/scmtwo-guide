@@ -60,7 +60,6 @@ python local_server.py
 ### Деплой
 Автоматический через **GitHub Actions**:
 -   Ветка: `main`
--   Workflow: `.github/workflows/deploy.yml`
 -   Триггер: Push в main
 
 ### Индексация скриптом
