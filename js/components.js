@@ -159,6 +159,7 @@ const NAV_SECTIONS = [
     {
         title: 'РОЛИ',
         links: [
+            { href: 'roles/medic/', text: 'Медик' },
             { href: 'roles/leaders/', text: 'Лидеры' }
         ]
     },
@@ -167,6 +168,13 @@ const NAV_SECTIONS = [
         links: [
             { href: 'mechanics/medicine/', text: 'Медицина' },
             { href: 'mechanics/surgery/', text: 'Хирургия' }
+        ]
+    },
+    {
+        title: 'РЕПОЗИТОРИИ',
+        links: [
+            { href: 'https://github.com/Shadugr/scmtwo-guide', text: 'Репозиторий руководства' },
+            { href: 'https://github.com/Shadugr/ShadugrMarinesTwo', text: 'Репозиторий сервера' }
         ]
     }
 ];
@@ -312,20 +320,30 @@ function renderSidebar() {
         let hasActiveLink = false;
 
         const linksHtml = section.links.map(link => {
-            const href = basePath + link.href;
+            let href = link.href;
+            let target = '';
+
+            if (href.startsWith('http')) {
+                // External link: use as is, open in new tab
+                target = ' target="_blank" rel="noopener noreferrer"';
+            } else {
+                // Internal link: prepend base path
+                href = basePath + href;
+            }
+
             // Check if current path matches link href (without trailing slash)
             // Normalize: remove trailing slash from link.href
             const linkPath = link.href.replace(/\/$/, '');
 
-            // Check exact match OR root match
-            const isActive = (currentPath === linkPath) ||
-                (link.href === '' && (currentPath === '' || rawParts.length === 0));
+            // Check exact match OR root match (only for internal links)
+            const isActive = !href.startsWith('http') && ((currentPath === linkPath) ||
+                (link.href === '' && (currentPath === '' || rawParts.length === 0)));
 
             if (isActive) {
                 hasActiveLink = true;
-                return `<a href="${href}" class="active">> ${link.text}</a>`;
+                return `<a href="${href}" class="active"${target}>> ${link.text}</a>`;
             }
-            return `<a href="${href}">> ${link.text}</a>`;
+            return `<a href="${href}"${target}>> ${link.text}</a>`;
         }).join('');
 
         // Open if it's the first section (Information) or if it contains active link
