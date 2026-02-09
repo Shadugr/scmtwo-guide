@@ -165,7 +165,8 @@ const NAV_SECTIONS = [
     {
         title: 'МЕХАНИКИ',
         links: [
-            { href: 'mechanics/medicine/', text: 'Медицина' }
+            { href: 'mechanics/medicine/', text: 'Медицина' },
+            { href: 'mechanics/surgery/', text: 'Хирургия' }
         ]
     }
 ];

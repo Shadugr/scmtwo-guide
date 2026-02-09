@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>ККМП: Хирургия</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <header id="site-header"></header>
+
+    <div class="container">
+        <nav id="sidebar"></nav>
+
+        <main class="main-content">
+            <div class="content-frame">
+                <h1 class="page-title">Руководство по хирургии</h1>
+                <div id="page-meta"></div>
+
+                <div class="admonition danger">
+                    <span class="admonition-title">⚠ ВНИМАНИЕ</span>
+                    Это руководство требует знания основ медицины. Неправильные действия могут привести к смерти пациента. 
+                    Это базовое руководство предназначается интернам и санитарам.
+                </div>
+
+                <section class="section">
+                    <h2>Введение</h2>
+                    <p>Хирургия — это сложный процесс, требующий точности и хладнокровия. В данном руководстве описаны
+                        инструменты, подготовка и этапы проведения различных хирургических операций.</p>
+                </section>
+
+                <section class="section">
+                    <h2>Инструменты</h2>
+                    <p>В начале смены в операционных находятся хирургические наборы, содержащие все необходимые инструменты.
+                        Они так же есть в наборах медика.</p>
+                    <div class="table-wrapper">
+                        <table class="uscm-table">
+                            <thead>
+                                <tr>
+                                    <th>Инструмент</th>
+                                    <th>Функция</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><img src="32px-Scalpel.png" alt="Scalpel"> Скальпель</td>
+                                    <td>Делает надрез на коже, чтобы открыть доступ к внутренностям.</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="32px-Hemostat.png" alt="Hemostat"> Зажим</td>
+                                    <td>Останавливает кровотечение, зажимая сосуды. Используется для извлечения предметов.</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="32px-Retractor.png" alt="Retractor"> Ретрактор</td>
+                                    <td>Раздвигает края раны для доступа к операционному полю.</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="32px-Circular_Saw.png" alt="Surgical Saw"> Хирургическая пила
+                                    </td>
+                                    <td>Распиливает кости (череп, грудная клетка) для доступа к органам или ампутации.</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="32px-Surgical_Drill.png" alt="Surgical Drill"> Хирургическая дрель</td>
+                                    <td>Используется для сверления костей и восстановления переломов.</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="32px-Cautery.png" alt="Cautery"> Прижигатель</td>
+                                    <td>Прижигает рану для остановки кровотечения и закрытия разреза.</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="32px-Bone_Gel.png" alt="Bone Gel"> Костный гель</td>
+                                    <td>Восстанавливает поврежденные кости перед их сращиванием.</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="32px-Bone_Setter.png" alt="Bone Setter"> Костоправ</td>
+                                    <td>Фиксирует сломанные кости на месте после обработки гелем.</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="32px-FixOVein.png" alt="FixOVein"> Fix-O-Vein</td>
+                                    <td>Используется для восстановления вен и артерий, при этом лечит внутренние кровотечения. 
+                                        Также используется для устранения гематом в головном мозге, лечит тяжёлые повреждения мозга.</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="32px-Trauma_Kit.png" alt="Trauma kit"> Продвинутый набор для лечения травм</td>
+                                    <td>Используется для восстановления всех органов, кроме мозга и глаз.</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="32px-Surgical_Line.png" alt="Surgical Line"> Хирургическая нить</td>
+                                    <td>Используется для сшивания повреждённой плоти, лечения чрезмерной грубой силы. 
+                                        Его также можно использовать для зашивания разрезов вместо прижигателя.</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="32px-Synth-Graft.png" alt="Synth Graft"> Синтетическая нить</td>
+                                    <td>Используется для пересадки сильно обожжённой плоти, лечения чрезмерных ожогов.</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="32px-PICT_System.png" alt="PICT"> Система PICT</td>
+                                    <td>
+                                        Прецизионный инструмент для разрезов и прижигания использует высокочастотное вибрирующее лезвие, лазерный прижигатель в сочетании 
+                                        с системой контроля всасывания жидкости для точного рассечения тканей и предотвращения утечки жидкости. 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><img src="32px-Incision_Management_System.png" alt="IMS"> Система управления надрезами (СУН)</td>
+                                    <td>
+                                        Используется для рассечения плоти, не требует зажима кровотечения и перестановки органов. 
+                                        В основном выполняет функции скальпеля, гемостата и ретрактора в один этап при первичном разрезе. 
+                                        Функционирует как скальпель только на этапах после первого. 
+                                        <b>Данный инструмент не поставляется в обычные хирургические наборы.</b>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>Подготовка к операции</h2>
+                    <p>Успех операции зависит не только от навыков хирурга, но и от подготовки пациента и рабочего места.
+                    </p>
+
+                    <h3>Анестезия</h3>
+                    <p>Хирургия без анестезии вызывает шок и боль. Используйте анестезию, если пациент в сознании.</p>
+                    <ul>
+                        <li><b>Операционный стол:</b> Положите пациента на стол, пристегните. Если стол оборудован
+                            анестезией, включите подачу.</li>
+                        <li><b>Обезболивающие:</b> В крайнем случае используйте опиоиды (Трамадол, Оксикодон), но они менее
+                            эффективны. <b>Чаще всего у вас не будет роскоши в виде операционного стола, поэтому придётся использовать этот вариант.</b></li>
+                    </ul>
+
+                    <h3>Условия</h3>
+                    <ul>
+                        <li><b>Одежда:</b> Снимите броню с пациента.</li>
+                        <li><b>Положение:</b> Пациент должен лежать (кроме операций "СТОЯЩИЙ НА НОГАХ").</li>
+                        <li><b>Стол:</b> Чем лучше место для операции, тем быстрее и эффективнее будет проводится операция:
+                            <ul>
+                                <li>Операционный стол (наилучший вариант)</li>
+                                <li>Портативный операционный стол</li>
+                                <li>Каталка для транспортировки, стол, кровать</li>
+                                <li>Рама от койки</li>
+                                <li>Пол, кушетка для медэвакуации (худший вариант)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="section">
+                    <h2>Хирургические операции</h2>
+                    <p>Для начала операции включите режим операции <img src="48px-Surgery_Button.png" alt="Surgery Mode"
+                            style="vertical-align: middle;"> и выберите интент помощи <img src="32px-Intent_(Help).png"
+                            alt="Help Intent" style="vertical-align: middle;">.</p>
+
+                    <h3>Базовые операции (Уровень 1)</h3>
+                    <div class="table-wrapper">
+                        <table class="uscm-table">
+                            <thead>
+                                <tr>
+                                    <th>Операция</th>
+                                    <th>Описание</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Наложение швов</b> <br><small>(СТОЯЩИЙ НА НОГАХ - НА СЕБЕ)</small></td>
+                                    <td>
+                                        Лечение физического урона и ожогов.
+                                        <ul>
+                                            <li>Физический урон: <img src="32px-Surgical_Line.png" alt="Surgical Line">
+                                                Хирургическая нить</li>
+                                            <li>Ожоги: <img src="32px-Synth-Graft.png" alt="Synth Graft"> Синтетическая нить</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Удаление инородного предмета</b> <br><a id="foreign-object"></a></td>
+                                    <td>
+                                        Удаление шрапнели, пуль или имплантов.
+                                        <ol>
+                                            <li><img src="32px-Scalpel.png" alt="Scalpel"> Разрез</li>
+                                            <li><img src="32px-Hemostat.png" alt="Hemostat"> Зажим</li>
+                                            <li><img src="32px-Retractor.png" alt="Retractor"> Ретрактор</li>
+                                            <li><img src="32px-Hemostat.png" alt="Hemostat"> Извлечь предмет</li>
+                                            <li><img src="32px-Cautery.png" alt="Cautery"> Прижечь надрез</li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>Продвинутые операции (Уровень 2)</h3>
+                    <div class="table-wrapper">
+                        <table class="uscm-table">
+                            <thead>
+                                <tr>
+                                    <th>Операция</th>
+                                    <th>Процедура</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Внутреннее кровотечение</b><br><span class="badge badge-physical">ПРИОРИТЕТ</span></td>
+                                    <td>
+                                        <ol>
+                                            <li><img src="32px-Scalpel.png" alt="Scalpel"> Разрез</li>
+                                            <li><img src="32px-Hemostat.png" alt="Hemostat"> Зажим</li>
+                                            <li><img src="32px-Retractor.png" alt="Retractor"> Ретрактор</li>
+                                            <li><img src="32px-FixOVein.png" alt="FixOVein"> Лечение сосудов</li>
+                                            <li><img src="32px-Cautery.png" alt="Cautery"> Закрыть</li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Восстановление костей</b></td>
+                                    <td>
+                                        <ol>
+                                            <li><img src="32px-Scalpel.png" alt="Scalpel"> Разрез</li>
+                                            <li><img src="32px-Hemostat.png" alt="Hemostat"> Зажим</li>
+                                            <li><img src="32px-Retractor.png" alt="Retractor"> Ретрактор</li>
+                                            <li><img src="32px-Bone_Gel.png" alt="Bone Gel"> Костный гель</li>
+                                            <li><img src="32px-Bone_Setter.png" alt="Bone Setter"> Вправить кость</li>
+                                            <li><img src="32px-Cautery.png" alt="Cautery"> Закрыть</li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Удаление личинки</b><br><span class="badge badge-burn" style="margin-bottom: 5px;">ВСЕГДА В ГРУДИ</span>
+                                        <br><span class="badge badge-physical">ПРИОРИТЕТ</span></td>
+                                    <td>
+                                        <ol>
+                                            <li><img src="32px-Scalpel.png" alt="Scalpel"> Разрез</li>
+                                            <li><img src="32px-Hemostat.png" alt="Hemostat"> Зажим</li>
+                                            <li><img src="32px-Retractor.png" alt="Retractor"> Ретрактор</li>
+                                            <li><img src="32px-Circular_Saw.png" alt="Saw"> Распилить грудную клетку</li>
+                                            <li><img src="32px-Retractor.png" alt="Retractor"> Раздвинуть ребра</li>
+                                            <li><img src="32px-PICT_System.png" alt="PICT"> или 
+                                                <img src="32px-Scalpel.png" alt="Scalpel"> Убить личинку</li>
+                                            <li><img src="32px-Hemostat.png" alt="Hemostat"> Извлечь личинку</li>
+                                            <li><img src="32px-Retractor.png" alt="Retractor"> Сдвинуть ребра</li>
+                                            <li><img src="32px-Bone_Gel.png" alt="Bone Gel"> Склеить ребра</li>
+                                            <li><img src="32px-Cautery.png" alt="Cautery"> Закрыть</li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <h3>Специализированные операции (Органы и Конечности)</h3>
+                    <div class="table-wrapper">
+                        <table class="uscm-table">
+                            <thead>
+                                <tr>
+                                    <th>Операция</th>
+                                    <th>Процедура</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Восстановление органов</b> (Всё кроме глаз и мозга)<br>
+                                        <span class="badge badge-burn">ТРЕБУЕТ ВСКРЫТИЯ<br>ГРУДНОЙ КЛЕТКИ</span></td>
+                                    <td>
+                                        <ol>
+                                            <li><img src="32px-Scalpel.png" alt="Scalpel"> Разрез</li>
+                                            <li><img src="32px-Hemostat.png" alt="Hemostat"> Зажим</li>
+                                            <li><img src="32px-Retractor.png" alt="Retractor"> Ретрактор</li>
+                                            <li><img src="32px-Circular_Saw.png" alt="Saw"> Распилить грудную клетку (только грудь)</li>
+                                            <li><img src="32px-Retractor.png" alt="Retractor"> Раздвинуть ребра (только грудь)</li>
+                                            <li><img src="32px-Trauma_Kit.png" alt="Trauma Kit"> Травма-кит (для органики)
+                                                <br><b>ИЛИ</b> <img src="32px-Nanopaste.png" alt="Nanopaste"> Нанопаста (для
+                                                синтетики)</li>
+                                            <li><img src="32px-Retractor.png" alt="Retractor"> Сдвинуть ребра</li>
+                                            <li><img src="32px-Bone_Gel.png" alt="Bone Gel"> Склеить ребра</li>
+                                            <li><img src="32px-Cautery.png" alt="Cautery"> Закрыть</li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Восстановление глаз</b></td>
+                                    <td>
+                                        <ol>
+                                            <li><img src="32px-Scalpel.png" alt="Scalpel"> Разрез</li>
+                                            <li><img src="32px-Hemostat.png" alt="Hemostat"> Зажим</li>
+                                            <li><img src="32px-Retractor.png" alt="Retractor"> Ретрактор</li>
+                                            <li><img src="32px-FixOVein.png" alt="FixOVein"> Лечение глаз</li>
+                                            <li><img src="32px-Cautery.png" alt="Cautery"> Закрыть разрез</li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Восстановление мозга</b><br><span class="badge badge-burn">ТРЕБУЕТ ВСКРЫТИЯ ЧЕРЕПА</span></td>
+                                    <td>
+                                        <ol>
+                                            <li><img src="32px-Scalpel.png" alt="Scalpel"> Разрез</li>
+                                            <li><img src="32px-Hemostat.png" alt="Hemostat"> Зажим</li>
+                                            <li><img src="32px-Retractor.png" alt="Retractor"> Ретрактор</li>
+                                            <li><img src="32px-Circular_Saw.png" alt="Saw"> Распилить череп</li>
+                                            <li><img src="32px-Retractor.png" alt="Retractor"> Раздвинуть череп</li>
+                                            <li><img src="32px-FixOVein.png" alt="FixOVein"> Лечение мозга</li>
+                                            <li><img src="32px-Retractor.png" alt="Retractor"> Сдвинуть череп</li>
+                                            <li><img src="32px-Bone_Gel.png" alt="Bone Gel"> Склеить череп</li>
+                                            <li><img src="32px-Cautery.png" alt="Cautery"> Закрыть</li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ампутация</b></td>
+                                    <td>
+                                        <ol>
+                                            <li><img src="32px-Scalpel.png" alt="Scalpel"> Разрез</li>
+                                            <li><img src="32px-Hemostat.png" alt="Hemostat"> Зажим</li>
+                                            <li><img src="32px-Retractor.png" alt="Retractor"> Ретрактор</li>
+                                            <li><img src="32px-Scalpel.png" alt="Scalpel"> рассечь мышци</li>
+                                            <li><img src="32px-FixOVein.png" alt="FixOVein"> или 
+                                                <img src="32px-Surgical_Line.png" alt="Surgical line"> отменить ампутацию восстановив мышци</li>
+                                            <li><img src="32px-Circular_Saw.png" alt="Saw"> Отпилить конечность</li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Установка протеза</b></td>
+                                    <td>
+                                        <ul>
+                                            <li>В случае потери органической конечности: <img src="32px-Scalpel.png" alt="Scalpel"> -> <img
+                                                    src="32px-FixOVein.png" alt="FixOVein"> -> <img src="32px-Surgical_Line.png"
+                                                    alt="Line"></li>
+                                            <li>В случае потери синтетической конечности: <img src="32px-Circular_Saw.png" alt="Saw"> -> 
+                                                Кликните пустой рукой, чтобы удалить сломанный протез</li>
+                                            <li>Взять протез в руку и кликнуть по культе.</li>
+                                            <li><b>Ремонт протеза:</b> <img src="32px-Welder.gif" alt="Welder"> Сварка
+                                                (повреждения), <img src="32px-CableCoils.png" alt="Cable"> Провода (ожоги).</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Пластическая операция</b><br><span class="badge badge-toxin">МИНИМАЛЬНЫЙ<br>ПРИОРИТЕТ</span></td>
+                                    <td>
+                                        <ol>
+                                            <li><img src="32px-Scalpel.png" alt="Scalpel"> Разрез</li>
+                                            <li><img src="32px-Hemostat.png" alt="Hemostat"> Зажим</li>
+                                            <li><img src="32px-Retractor.png" alt="Retractor"> Ретрактор</li>
+                                            <li><img src="32px-Cautery.png" alt="Cautery"> Закрыть</li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2>АвтоДок (AutoDoc)</h2>
+                    <p>Автоматизированная хирургическая система. Находится в медблоке. Может выполнять ограниченный
+                        набор операций без участия хирурга, но требует настройки и загрузки пациента.</p>
+                    <div class="admonition info">
+                        <span class="admonition-title">ВАЖНО</span>
+                        Очередь операций выполняется последовательно. Следите за уровнем крови пациента!
+                    </div>
+                
+                    <h3>Комбинированные операции</h3>
+                    <p>Для экономии времени можно выполнять несколько операций в один заход.</p>
+                    <div class="admonition info">
+                        <span class="admonition-title">ℹ Совет</span>
+                        Если у пациента перелом и внутреннее кровотечение в одной зоне, не закрывайте разрез между
+                        процедурами! После остановки внутреннего кровотечения, продолжайте операцию и начинайте восстанавливать кости. Повторный надрез проводить не нужно.
+                    </div>
+                </section>
+
+                <div id="author-card"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/components.js"></script>
+    <script>
+        renderPageMeta('Хирургия', 'Механики', '09.02.2026', 'МЕДИЦИНСКОМУ СОСТАВУ ККМП', 'red');
+        renderAuthorCard('Shadugr');
+    </script>
+</body>
+
+</html>
