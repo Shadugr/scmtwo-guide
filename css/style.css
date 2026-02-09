@@ -60,6 +60,8 @@ body::after {
 
 html {
     scroll-behavior: smooth;
+    font-size: 18px;
+    /* Increased from default 16px */
 }
 
 /* --- HEADER --- */
