@@ -62,6 +62,14 @@ python local_server.py
 -   Ветка: `main`
 -   Триггер: Push в main
 
+### Генерация Sitemap
+Для обновления `sitemap.xml` используйте PowerShell скрипт:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File generate_sitemap.ps1
+```
+Скрипт автоматически сканирует HTML файлы, исключая системные директории, и генерирует карту сайта с датами последней модификации файлов.
+
 ### Индексация скриптом
 При добавлении новых страниц **обязательно** обновите поисковый индекс:
 ```powershell
@@ -69,6 +77,7 @@ powershell -ExecutionPolicy Bypass -File generate_search_index.ps1
 ```
 
 ## 📝 Важные файлы
+-   `generate_sitemap.ps1`: Генератор карты сайта (sitemap.xml).
 -   `generate_search_index.ps1`: Генератор индекса поиска.
 -   `local_server.py`: Локальный сервер для тестов.
 -   `js/components.js`: Вся логика UI и навигации.

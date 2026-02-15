@@ -440,7 +440,7 @@ function renderSidebar() {
 
 // --- PAGE META COMPONENT ---
 // accessColor: 'green' (default), 'yellow', 'red', 'blue', 'purple'
-function renderPageMeta(title, section, updateDate, access, accessColor = 'green') {
+function renderPageMeta(section, access, accessColor = 'green') {
     const meta = document.getElementById('page-meta');
     if (!meta) return;
 
@@ -456,9 +456,56 @@ function renderPageMeta(title, section, updateDate, access, accessColor = 'green
     meta.className = 'page-meta';
     meta.innerHTML = `
         <span>РАЗДЕЛ: ${section.toUpperCase()}</span>
-        <span>ОБНОВЛЕНО: ${updateDate}</span>
+        <span>ОБНОВЛЕНО: <span id="meta-date">-</span></span>
         <span>ДОСТУП: <span style="color: ${color};">${access}</span></span>
     `;
+
+    // Try to update date from sitemap
+    fetch(getBasePath() + 'sitemap.xml')
+        .then(response => response.text())
+        .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+        .then(data => {
+            const currentPath = window.location.pathname.replace(/\/index\.html$/, '/').replace(/\/$/, '');
+            const repoName = SITE_CONFIG.repoName || 'scmtwo-guide';
+
+            const urls = data.querySelectorAll('url');
+            for (let url of urls) {
+                const loc = url.querySelector('loc').textContent;
+                // Extract path from loc (remove protocol and domain)
+                // e.g. https://.../scmtwo-guide/mechanics/surgery/ -> /scmtwo-guide/mechanics/surgery
+                try {
+                    const urlObj = new URL(loc);
+                    const locPath = urlObj.pathname.replace(/\/$/, '');
+
+                    // Match logic:
+                    // We check if the current path ends with the sitemap path (handling local vs prod paths)
+                    // or if locPath contains the relevant part of currentPath
+
+                    // Simple check: strict match if on prod, or loose match for local
+                    // Let's rely on the relative path structure relative to repo root
+
+                    // Get 'mechanics/surgery' from loc
+                    const pathParts = locPath.split(repoName);
+                    const relPath = pathParts.length > 1 ? pathParts[1] : locPath;
+
+                    // Get 'mechanics/surgery' from current window
+                    const currentParts = currentPath.split(repoName);
+                    const currentRel = currentParts.length > 1 ? currentParts[1] : currentPath;
+
+                    if (relPath === currentRel || (relPath === '' && currentRel === '/')) {
+                        const lastmod = url.querySelector('lastmod').textContent; // YYYY-MM-DD
+                        if (lastmod) {
+                            const [year, month, day] = lastmod.split('-');
+                            document.getElementById('meta-date').textContent = `${day}.${month}.${year}`;
+                        }
+                        break;
+                    }
+                } catch (e) {
+                    console.error('Error parsing sitemap URL', e);
+                }
+            }
+        })
+        .catch(err => console.log('Sitemap fetch skipped or failed', err));
 }
 
 // --- TABLE OF CONTENTS COMPONENT ---
