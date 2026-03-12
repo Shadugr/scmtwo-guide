@@ -2,6 +2,7 @@ import http.server
 import socketserver
 import os
 import sys
+import urllib.parse
 
 PORT = 8000
 
@@ -20,7 +21,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         # e.g. /lore/index.html -> ./lore/index.html
         
         cwd = os.getcwd()
-        rel_path = path.lstrip('/')
+        rel_path = urllib.parse.unquote(path.lstrip('/'))
         full_path = os.path.join(cwd, rel_path)
         
         # Debug print
