@@ -23,11 +23,14 @@
                 <div id="page-meta"></div>
 
                 <h2>Подключение к игре</h2>
-                <p>Для игры на нашем сервере тебе понадобятся две вещи: <strong>ZeroTier</strong> (для имитации
+                <p>Для игры на нашем сервере тебе понадобятся две вещи: <strong>ZeroTier/RadminVPN</strong> (для имитации
                     локальной сети) и клиент <strong>BYOND</strong>.</p>
 
-                <h3>Настройка ZeroTier</h3>
-                <p>Мы используем ZeroTier для обеспечения стабильного соединения. Пожалуйста, строго следуйте инструкции:</p>
+                <h3>Настройка имитации локальной сети</h3>
+                <p>Для игры мы используем <strong>ZeroTier</strong> или <strong>Radmin VPN</strong>. Советуем ставить ZeroTier — он обычно стабильнее. 
+                    Если же с ним что-то пойдет не так, всегда можно переключиться на RadminVPN</p>
+
+                <h4>ZeroTier</h4>
                 <ol>
                     <li>Скачайте и установите клиент 
                         <a href="ZeroTier One.rar" target="_blank">ZeroTier</a>.
@@ -46,6 +49,20 @@
                     <span class="admonition-title">⚠ Финальный шаг</span>
                     Напишите пользователю <strong>@sherekhanromeo</strong> в канале <strong>#cm-чатик</strong>, чтобы он подтвердил вашу заявку в сети ZeroTier.
                 </div>
+
+                <h4>RadminVPN</h4>
+                <ol>
+                    <li>Скачайте и установите программу с <a href="https://www.radmin-vpn.com/"
+                            target="_blank">официального сайта</a>.</li>
+                    <li>Запустите её и выберите: <strong>Сеть</strong> → <strong>Присоединиться к сети</strong>.</li>
+                    <li>Введите данные для входа:
+                        <ul>
+                            <li><strong>Имя сети:</strong> <code>DFка</code></li>
+                            <li><strong>Пароль:</strong> <code>000000</code></li>
+                        </ul>
+                    </li>
+                    <li>Нажмите кнопку <strong>Подключиться</strong>.</li>
+                </ol>
 
                 <h3>Вход на сервер</h3>
                 <ol>
@@ -77,7 +94,8 @@
 
                 <div class="admonition success">
                     <span class="admonition-title">✔ Адрес для подключения</span>
-                    <strong>IP сервера:</strong> <code>byond://172.30.31.201:7777</code><br>
+                    <strong>Если используете ZeroTier:</strong> <code>byond://172.30.31.201:7777</code><br>
+                    <strong>Если используете RadminVPN:</strong> <code>byond://26.174.60.22:7777</code><br>
                     <em>(Скопируйте и вставьте в BYOND: Open → URL)</em>
                 </div>
 
